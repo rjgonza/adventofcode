@@ -9,8 +9,8 @@
 
 | Bash                                   | Rust                                            |
 | -------------------------------------- | ----------------------------------------------- |
-| [Part 1](2021/Day1/bash/Day1_Part1.sh) | [Part 1](2021/Day1/rust/Day1_Part1/src/main.rs) |
-| [Part 2](2021/Day1/bash/Day1_Part2.sh) | [Part 2](2021/Day1/rust/Day1_Part2/src/main.rs) |
+| [Part 1](2021/Day1/bash/Day1_Part1.sh) | [Part 1](2021/Day1/rust/day1_part1/src/main.rs) |
+| [Part 2](2021/Day1/bash/Day1_Part2.sh) | [Part 2](2021/Day1/rust/day1_part2/src/main.rs) |
 
 ### Day 2
 
