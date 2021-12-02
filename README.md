@@ -9,7 +9,7 @@
 
 | Bash                              |
 | --------------------------------- |
-| [Part 1](2021/Day1/Day1_Part1.sh) |
-| [Part 2](2021/Day1/Day1_Part2.sh) |
+| [Part 1](2021/Day1/bash/Day1_Part1.sh) |
+| [Part 2](2021/Day1/bash/Day1_Part2.sh) |
 
 ### Day 2
