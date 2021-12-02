@@ -7,9 +7,18 @@
 
 #### Solutions
 
-| Bash                              |
-| --------------------------------- |
+| Bash                                   |
+| -------------------------------------- |
 | [Part 1](2021/Day1/bash/Day1_Part1.sh) |
 | [Part 2](2021/Day1/bash/Day1_Part2.sh) |
 
 ### Day 2
+
+[Puzzle](2021/Day2/Day2.txt)
+
+### Solutions
+
+| Bash                                   |
+| ---------------------------------------|
+| [Part 1](2021/Day2/bash/Day2_Part1.sh) |
+| [Part 2](2021/Day2/bash/Day2_Part2.sh) |
