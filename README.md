@@ -3,7 +3,7 @@
 ## 2021
 
 ### Day 1
-[Puzzle](2021/Day1/Day1.txt)
+[Puzzle](2021/Day1/Day1.md)
 
 #### Solutions
 
@@ -14,7 +14,7 @@
 
 ### Day 2
 
-[Puzzle](2021/Day2/Day2.txt)
+[Puzzle](2021/Day2/Day2.md)
 
 ### Solutions
 
