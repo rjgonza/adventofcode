@@ -20,5 +20,5 @@
 
 | Bash                                   | Rust                                            |
 | ---------------------------------------| ----------------------------------------------- |
-| [Part 1](2021/Day2/bash/Day2_Part1.sh) | [Part 1](2021/Day1/rust/day2_part1/src/main.rs) |
-| [Part 2](2021/Day2/bash/Day2_Part2.sh) | [Part 1](2021/Day1/rust/day2_part2/src/main.rs) |
+| [Part 1](2021/Day2/bash/Day2_Part1.sh) | [Part 1](2021/Day2/rust/day2_part1/src/main.rs) |
+| [Part 2](2021/Day2/bash/Day2_Part2.sh) | [Part 1](2021/Day2/rust/day2_part2/src/main.rs) |
