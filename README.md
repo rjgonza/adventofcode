@@ -31,3 +31,11 @@
 | ---- | ----------------------------------------------- |
 |      | [Part 1](2021/Day3/rust/day3_part1/src/main.rs) |
 |      | [Part 2](2021/Day3/rust/day3_part1/src/main.rs) |
+### Day 4
+
+[Puzzle](2021/Day4/Day4.md)
+
+| Bash                                        | Rust                                            |
+| ------------------------------------------- | ----------------------------------------------- |
+| [Part 1](2021/Day4/bash/Day4_Part1.sh)      | [Part 1](2021/Day4/rust/day4_part1/src/main.rs) |
+| [Part 1](2021/Day4/bash/Day4_Part1.sh)      | [Part 2](2021/Day4/rust/day4_part1/src/main.rs) |
