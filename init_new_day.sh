@@ -45,7 +45,7 @@ cat >> "${SCRIPT_DIR}/README.md" <<EOF
 | Bash                                        | Rust                                            |
 | ------------------------------------------- | ----------------------------------------------- |
 | [Part 1](2021/Day${d}/bash/Day${d}_Part1.sh)      | [Part 1](2021/Day${d}/rust/day${d}_part1/src/main.rs) |
-| [Part 1](2021/Day${d}/bash/Day${d}_Part1.sh)      | [Part 2](2021/Day${d}/rust/day${d}_part1/src/main.rs) |
+| [Part 2](2021/Day${d}/bash/Day${d}_Part2.sh)      | [Part 2](2021/Day${d}/rust/day${d}_part1/src/main.rs) |
 EOF
 
 cat > "${dir}/Day${d}.md" <<EOF
