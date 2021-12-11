@@ -27,15 +27,33 @@
 
 [Puzzle](2021/Day3/Day3.md)
 
-| Bash | Rust                                            |
+| Bash                                   | Rust                                            |
 | -------------------------------------- | ----------------------------------------------- |
 | [Part 1](2021/Day3/bash/day3_part1.sh) | [Part 1](2021/Day3/rust/day3_part1/src/main.rs) |
-| [Part 1](2021/Day3/bash/day3_part2.sh) | [Part 2](2021/Day3/rust/day3_part1/src/main.rs) |
+| [Part 2](2021/Day3/bash/day3_part2.sh) | [Part 2](2021/Day3/rust/day3_part1/src/main.rs) |
 ### Day 4
 
 [Puzzle](2021/Day4/Day4.md)
 
+| Bash                                   | Rust                                            |
+| ---------------------------------------| ----------------------------------------------- |
+|  | [Part 1](2021/Day4/rust/day4_part1/src/main.rs) |
+|  | [Part 2](2021/Day4/rust/day4_part1/src/main.rs) |
+
+### Day 5
+
+[Puzzle](2021/Day5/Day5.md)
+
 | Bash                                        | Rust                                            |
 | ------------------------------------------- | ----------------------------------------------- |
-|       | [Part 1](2021/Day4/rust/day4_part1/src/main.rs) |
-|       | [Part 2](2021/Day4/rust/day4_part1/src/main.rs) |
+|      | [Part 1](2021/Day5/rust/day5_part1/src/main.rs) |
+|      | [Part 2](2021/Day5/rust/day5_part1/src/main.rs) |
+
+### Day 6
+
+[Puzzle](2021/Day/Day.md)
+
+| Bash                                        | Rust                                            |
+| ------------------------------------------- | ----------------------------------------------- |
+|       | [Part 1](2021/Day6/rust/day_part1/src/main.rs) |
+|       | [Part 2](2021/Day6/rust/day_part1/src/main.rs) |
