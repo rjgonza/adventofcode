@@ -18,7 +18,7 @@ while getopts "d:" opts; do
     esac
 done
 
-d="$(date -d "${d:-$(date)}" +'%-d' )"
+d="$(date -d "${d:-$date}" +'%-d' )"
 
 dir="${SCRIPT_DIR}/2021/Day${d}"
 mkdir -p "${dir}/bash"
