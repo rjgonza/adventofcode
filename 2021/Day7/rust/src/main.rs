@@ -1,16 +1,57 @@
 static INPUT_FILE: &'static str = include_str!("../../input.txt");
 
-fn part1(input: &str) -> usize {
-    let mut crab_positions: Vec<usize> = Vec::new();
+fn part1(input: &str) -> i32 {
+    let mut crab_positions: Vec<i32> = Vec::new();
+    let mut crab_to_get_to: i32 = 0;
+    let mut fuel_spent: i32 = 0;
 
-    crab_positions = input.split(',').map(|c| c.parse().unwrap()).collect();
+    crab_positions = input
+        .split(',')
+        .map(|c| c.parse::<i32>().unwrap())
+        .collect();
 
-    dbg!(crab_positions);
-    0
+    crab_positions.sort();
+    let mid = crab_positions.len() / 2;
+    if crab_positions.len() % 2 == 0 {
+        let a = crab_positions[mid - 1];
+        let b = crab_positions[mid];
+        crab_to_get_to = (a + b) / 2;
+    } else {
+        crab_to_get_to = crab_positions[mid];
+    }
+
+    for crab in crab_positions {
+        fuel_spent += crab_to_get_to.min(crab) - crab.max(crab_to_get_to);
+    }
+
+    fuel_spent.abs()
 }
 
-fn part2(_input: &str) -> usize {
-    0
+fn part2(input: &str) -> i32 {
+    let mut crab_positions: Vec<i32> = Vec::new();
+    let mut crab_to_get_to: i32 = 0;
+    let mut fuel_spent: i32 = 0;
+
+    crab_positions = input
+        .split(',')
+        .map(|c| c.parse::<i32>().unwrap())
+        .collect();
+
+    crab_positions.sort();
+    let mid = crab_positions.len() / 2;
+    if crab_positions.len() % 2 == 0 {
+        let a = crab_positions[mid - 1];
+        let b = crab_positions[mid];
+        crab_to_get_to = (a + b) / 2;
+    } else {
+        crab_to_get_to = crab_positions[mid];
+    }
+
+    for crab in crab_positions {
+        fuel_spent += crab_to_get_to.min(crab) - crab.max(crab_to_get_to);
+    }
+
+    fuel_spent.abs()
 }
 
 fn main() {
@@ -31,6 +72,6 @@ mod test {
 
     #[test]
     fn test_part2() {
-        assert_eq!(part2(INPUT), 0);
+        assert_eq!(part2(INPUT), 206);
     }
 }
