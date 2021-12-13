@@ -28,12 +28,12 @@ touch "${dir}/input.txt"
 touch "${dir}/rust/Cargo.toml"
 
 cat > "${dir}/rust/Cargo.toml" <<EOF
-[workspace]
+[package]
+name = "rust"
+version = "0.1.0"
+edition = "2021"
 
-members = [
-    "day${d}_part1",
-    "day${d}_part2",
-]
+[dependancies]
 EOF
 
 cat >> "${SCRIPT_DIR}/README.md" <<EOF
@@ -42,10 +42,9 @@ cat >> "${SCRIPT_DIR}/README.md" <<EOF
 
 [Puzzle](2021/Day${d}/Day${d}.md)
 
-| Bash                                        | Rust                                            |
-| ------------------------------------------- | ----------------------------------------------- |
-| [Part 1](2021/Day${d}/bash/day${d}_part1.sh)      | [Part 1](2021/Day${d}/rust/day${d}_part1/src/main.rs) |
-| [Part 2](2021/Day${d}/bash/day${d}_part2.sh)      | [Part 2](2021/Day${d}/rust/day${d}_part1/src/main.rs) |
+| Bash                                        | Rust                                        |
+| ------------------------------------------- | ------------------------------------------- |
+| [Part 1 & 2](2021/Day${d}/bash/day${d}.sh)  | [Part 1 & 2](2021/Day${d}/rust/src/main.rs) |
 EOF
 
 cat > "${dir}/Day${d}.md" <<EOF
