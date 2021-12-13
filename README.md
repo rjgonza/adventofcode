@@ -55,5 +55,4 @@
 
 | Bash                                        | Rust                                            |
 | ------------------------------------------- | ----------------------------------------------- |
-|       | [Part 1](2021/Day6/rust/day_part1/src/main.rs) |
-|       | [Part 2](2021/Day6/rust/day_part1/src/main.rs) |
+|       | [Part 1 & 2](2021/Day6/rust/src/main.rs) |
