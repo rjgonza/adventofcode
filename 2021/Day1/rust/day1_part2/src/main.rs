@@ -1,3 +1,4 @@
+#![allow(unused_variables, unused_assignments)]
 extern crate getopts;
 use getopts::Options;
 use std::env;

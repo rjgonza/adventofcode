@@ -1,9 +1,9 @@
 extern crate getopts;
 use getopts::Options;
+use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::Path;
-use std::{env, result};
 
 fn main() {
     let args: Vec<String> = env::args().collect();

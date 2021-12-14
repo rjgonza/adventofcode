@@ -1,4 +1,4 @@
-static INPUT_FILE: &'static str = include_str!("../../input.txt");
+static INPUT_FILE: &str = include_str!("../../input.txt");
 
 struct FishBuckets {
     buckets: [usize; 9],
@@ -25,7 +25,7 @@ impl FishBuckets {
 fn part1(input: &str) -> usize {
     let mut fish = FishBuckets::new();
 
-    for number in input.split(",") {
+    for number in input.split(',') {
         fish.insert(number.trim().parse().unwrap());
     }
 
@@ -39,7 +39,7 @@ fn part1(input: &str) -> usize {
 fn part2(input: &str) -> usize {
     let mut fish = FishBuckets::new();
 
-    for number in input.split(",") {
+    for number in input.split(',') {
         fish.insert(number.trim().parse().unwrap());
     }
 

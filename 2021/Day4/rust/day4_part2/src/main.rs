@@ -1,15 +1,14 @@
-use indexmap::indexmap;
 use std::fs;
 
 #[derive(Debug, Clone, Copy)]
-struct bingo_board {
+struct BingoBoard {
     board: [[i32; 5]; 5],
     marked: [[bool; 5]; 5],
     winner: bool,
     winning_number: i32,
 }
 
-impl bingo_board {
+impl BingoBoard {
     fn new(input: &[&str]) -> Self {
         let mut values = [[0; 5]; 5];
         for (x, row) in input.iter().enumerate() {
@@ -21,7 +20,7 @@ impl bingo_board {
                 values[x][y] = *v;
             }
         }
-        bingo_board {
+        BingoBoard {
             board: values,
             marked: [[false; 5]; 5],
             winner: false,
@@ -56,7 +55,7 @@ impl bingo_board {
     fn score(&self) -> i32 {
         let mut total_score: i32 = 0;
         for (x, row) in self.marked.iter().enumerate() {
-            for (y, col) in row.iter().enumerate() {
+            for (y, _) in row.iter().enumerate() {
                 if !self.marked[x][y] {
                     total_score += self.board[x][y];
                 }
@@ -70,11 +69,11 @@ fn main() {
     let data = fs::read_to_string("../../input.txt").unwrap();
     let input: Vec<&str> = data.lines().filter(|line| line != &"").collect();
     let numbers: Vec<i32> = input[0]
-        .split(",")
+        .split(',')
         .map(|s| s.parse::<i32>().unwrap())
         .collect();
 
-    let mut boards: Vec<bingo_board> = input[1..].chunks(5).map(|c| bingo_board::new(c)).collect();
+    let mut boards: Vec<BingoBoard> = input[1..].chunks(5).map(|c| BingoBoard::new(c)).collect();
     for number in numbers.iter() {
         for board in boards.iter_mut() {
             board.check_board(*number);
@@ -86,7 +85,7 @@ fn main() {
                 println!("{:?}", last_card.score() * last_card.winning_number);
             }
         }
-        let mut non_winners: Vec<bingo_board> = Vec::new();
+        let mut non_winners: Vec<BingoBoard> = Vec::new();
         for b in boards {
             if !b.winner {
                 non_winners.push(b);

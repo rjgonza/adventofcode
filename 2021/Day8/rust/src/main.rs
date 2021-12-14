@@ -1,6 +1,8 @@
+#![allow(unused_variables)]
+#![allow(clippy::needless_collect)]
 use std::collections::HashSet;
 
-static INPUT_FILE: &'static str = include_str!("../../input.txt");
+static INPUT_FILE: &str = include_str!("../../input.txt");
 // static ONE: &'static str = "abcefg";
 // static TWO: &'static str = "cf";
 // static THREE: &'static str = "acdfg";
@@ -14,7 +16,8 @@ static INPUT_FILE: &'static str = include_str!("../../input.txt");
 fn part1(input: &str) -> usize {
     let mut digit_counter = 0;
     for line in input.lines() {
-        for (_, parts) in line.split_once(" | ") {
+        if let Some((_, parts)) = line.split_once(" | ") {
+            // for (_, parts) in line.split_once(" | ") {
             for digits in parts.trim().split_whitespace() {
                 let digit = digits.len();
                 match digit {
@@ -34,8 +37,9 @@ fn part1(input: &str) -> usize {
 fn part2(input: &str) -> usize {
     let mut total = 0;
     for line in input.lines() {
-        for (parts, display) in line.split_once(" | ") {
-            let mut numbers: Vec<HashSet<_>> = parts
+        // for (parts, display) in line.split_once(" | ") {
+        if let Some((parts, display)) = line.split_once(" | ") {
+            let numbers: Vec<HashSet<_>> = parts
                 .trim()
                 .split_whitespace()
                 .map(|s| HashSet::from_iter(s.chars()))

@@ -16,18 +16,19 @@ fn main() {
     }
 
     for (_, v) in binary_digits.iter().enumerate() {
-        for i in 0..12 {
+        // for i in 0..12 {
+        for (i, c) in counters.iter_mut().enumerate() {
             // print!("{}", v.chars().nth(i).unwrap());
             match v.chars().nth(i).unwrap() {
-                '0' => counters[i][0] += 1,
-                '1' => counters[i][1] += 1,
+                '0' => c[0] += 1,
+                '1' => c[1] += 1,
                 _ => println!("Unmatched type"),
             }
         }
     }
 
-    for i in 0..12 {
-        if counters[i][0] > counters[i][1] {
+    for (_, c) in counters.iter_mut().enumerate() {
+        if c[0] > c[1] {
             gamma_rate.push('0');
             epsilon_rate.push('1');
         } else {

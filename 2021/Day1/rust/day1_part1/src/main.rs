@@ -1,3 +1,4 @@
+#![allow(unused_variables, unused_assignments)]
 use clap::{App, Arg};
 use std::fs::File;
 use std::io::{BufRead, BufReader};
@@ -25,7 +26,7 @@ fn main() {
 
     for (count, line) in reader.lines().enumerate() {
         let value = line.expect("Unable to parse line");
-        let mut res = "";
+        let res;
         if count == 0 {
             previous = value.parse::<i32>().unwrap();
             res = "N/A";

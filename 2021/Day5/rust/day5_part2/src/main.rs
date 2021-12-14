@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-static INPUT_FILE: &'static str = include_str!("../../../input.txt");
+static INPUT_FILE: &str = include_str!("../../../input.txt");
 
 fn part2(s: &str) -> isize {
     let mut intersects: HashSet<(isize, isize)> = HashSet::new();

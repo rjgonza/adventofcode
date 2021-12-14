@@ -1,4 +1,4 @@
-static INPUT_FILE: &'static str = include_str!("../../input.txt");
+static INPUT_FILE: &str = include_str!("../../input.txt");
 
 fn part1(_input: &str) -> usize {
     todo!();
@@ -29,4 +29,3 @@ mod test {
         assert_eq!(part2(INPUT), 0);
     }
 }
-

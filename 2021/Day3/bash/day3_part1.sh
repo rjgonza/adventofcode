@@ -7,7 +7,7 @@ counter_0=(0 0 0 0 0 0 0 0 0 0 0 0)
 counter_1=(0 0 0 0 0 0 0 0 0 0 0 0)
 
 while read line; do
-    for number in "${line}"; do
+    for number in ${line}; do
         # echo "$number"
         for (( i=0; i<"${#number}"; i++ )); do
     digit=${number:i:1}

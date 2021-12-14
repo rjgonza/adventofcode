@@ -1,4 +1,5 @@
-static INPUT_FILE: &'static str = include_str!("../../input.txt");
+#![allow(unused_assignments)]
+static INPUT_FILE: &str = include_str!("../../input.txt");
 
 fn part1(input: &str) -> i32 {
     let mut crab_positions: Vec<i32> = Vec::new();
@@ -10,7 +11,7 @@ fn part1(input: &str) -> i32 {
         .map(|c| c.parse::<i32>().unwrap())
         .collect();
 
-    crab_positions.sort();
+    crab_positions.sort_unstable();
     let mid = crab_positions.len() / 2;
     if crab_positions.len() % 2 == 0 {
         let a = crab_positions[mid - 1];
@@ -29,7 +30,6 @@ fn part1(input: &str) -> i32 {
 
 fn part2(input: &str) -> i32 {
     let mut crab_positions: Vec<i32> = Vec::new();
-    let mut crab_to_get_to: i32 = 0;
     let mut fuel_spent: i32 = 0;
 
     crab_positions = input
