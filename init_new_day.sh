@@ -30,7 +30,7 @@ touch "${dir}/input.txt"
 touch "${dir}/rust/Cargo.toml"
 
 cat > "${dir}/rust/src/main.rs" <<EOF
-static INPUT_FILE: &'static str = include_str!("../../input.txt");
+static INPUT_FILE: &str = include_str!("../../input.txt");
 
 fn main() {
     println!("Part 1: {}", part1(INPUT_FILE));
@@ -69,6 +69,7 @@ cat > "${dir}/rust/Cargo.toml" <<EOF
 name = "rust"
 version = "0.1.0"
 edition = "2021"
+authors = ["Ramon Gonzalez <ramon@gonzalez.house>"]
 
 [dependancies]
 EOF
