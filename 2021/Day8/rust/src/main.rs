@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 static INPUT_FILE: &'static str = include_str!("../../input.txt");
 // static ONE: &'static str = "abcefg";
 // static TWO: &'static str = "cf";
@@ -29,8 +31,83 @@ fn part1(input: &str) -> usize {
     digit_counter
 }
 
-fn part2(_input: &str) -> usize {
-    todo!();
+fn part2(input: &str) -> usize {
+    let mut total = 0;
+    for line in input.lines() {
+        for (parts, display) in line.split_once(" | ") {
+            let mut numbers: Vec<HashSet<_>> = parts
+                .trim()
+                .split_whitespace()
+                .map(|s| HashSet::from_iter(s.chars()))
+                .collect();
+
+            let mut left_over = vec![];
+            let mut map: Vec<Option<HashSet<char>>> = vec![None; 10];
+
+            for digit_set in numbers.into_iter() {
+                match digit_set.len() {
+                    2 => map[1] = Some(digit_set),
+                    3 => map[7] = Some(digit_set),
+                    4 => map[4] = Some(digit_set),
+                    7 => map[8] = Some(digit_set),
+                    _ => left_over.push(digit_set),
+                }
+            }
+
+            let head = left_over;
+            let mut remainder = vec![];
+            for set in head.into_iter() {
+                if set.len() == 6 && set.is_superset(map[4].as_ref().unwrap()) {
+                    map[9] = Some(set);
+                } else if set.len() == 5 && set.is_superset(map[1].as_ref().unwrap()) {
+                    map[3] = Some(set);
+                } else {
+                    remainder.push(set);
+                }
+            }
+
+            let head = remainder;
+            let mut remainder = vec![];
+            for set in head.into_iter() {
+                if set.len() == 6 && set.is_superset(map[1].as_ref().unwrap()) {
+                    map[0] = Some(set);
+                } else {
+                    remainder.push(set);
+                }
+            }
+
+            let head = remainder;
+            let mut remainder = vec![];
+            for set in head.into_iter() {
+                if set.len() == 6 {
+                    map[6] = Some(set);
+                } else {
+                    remainder.push(set);
+                }
+            }
+
+            let head = remainder;
+            for set in head.into_iter() {
+                if set.is_subset(map[6].as_ref().unwrap()) {
+                    map[5] = Some(set);
+                } else {
+                    map[2] = Some(set);
+                }
+            }
+            let map: Vec<_> = map.into_iter().map(|item| item.unwrap()).collect();
+
+            let mut count = 0;
+            for s in display.split_whitespace() {
+                let set = HashSet::from_iter(s.chars());
+                let n = map.iter().position(|cmp| cmp == &set).unwrap();
+                count *= 10;
+                count += n;
+            }
+            total += count;
+        }
+    }
+
+    0
 }
 
 fn main() {

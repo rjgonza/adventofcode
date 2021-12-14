@@ -32,17 +32,17 @@ touch "${dir}/rust/Cargo.toml"
 cat > "${dir}/rust/src/main.rs" <<EOF
 static INPUT_FILE: &'static str = include_str!("../../input.txt");
 
+fn main() {
+    println!("Part 1: {}", part1(INPUT_FILE));
+    println!("Part 2: {}", part2(INPUT_FILE));
+}
+
 fn part1(_input: &str) -> usize {
     todo!();
 }
 
 fn part2(_input: &str) -> usize {
     todo!();
-}
-
-fn main() {
-    println!("Part 1: {}", part1(INPUT_FILE));
-    println!("Part 2: {}", part2(INPUT_FILE));
 }
 
 #[cfg(test)]
