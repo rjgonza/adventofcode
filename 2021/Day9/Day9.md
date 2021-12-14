@@ -24,6 +24,52 @@ The `risk level` of a low point is `1 plus its height`. In the above example, th
 
 Find all of the low points on your heightmap. **What is the sum of the risk levels of all low points on your heightmap?**
 
-To begin, get your puzzle input.
+Your puzzle answer was **`594`**.
 
-Answer:
+The first half of this puzzle is complete! It provides one gold star: *
+
+# --- Part Two ---
+
+Next, you need to find the largest basins so you know what areas are most important to avoid.
+
+A **basin** is all locations that eventually flow downward to a single low point. Therefore, every low point has a basin, although some basins are very small. Locations of height `9` do not count as being in any basin, and all other locations will always be part of exactly one basin.
+
+The **size** of a basin is the number of locations within the basin, including the low point. The example above has four basins.
+
+The top-left basin, size `3`:
+
+    2*1*99943210
+    3*987894921
+    9856789892
+    8767896789
+    9899965678
+
+The top-right basin, size `9`:
+
+    219994*3*2*1*0
+    3987894*92*1*
+    9856789892*
+    8767896789
+    9899965678
+
+The middle basin, size `14`:
+
+    2199943210
+    398*7*8*94921
+    98*5*6*7*8*9892
+    8*7*6*7*8*96789
+    9899965678
+
+The bottom-right basin, size `9`:
+
+    2199943210
+    3987894921
+    98567898*92
+    8767896*7*8*9
+    989996*5*6*7*8*
+
+Find the three largest basins and multiply their sizes together. In the above example, this is `9 * 14 * 9 = 1134`.
+
+**What do you get if you multiply together the sizes of the three largest basins?**
+
+Your puzzle answer was **`858494`**.
