@@ -111,7 +111,7 @@ fn part2(input: &str) -> usize {
         }
     }
 
-    0
+    total
 }
 
 fn main() {
