@@ -113,4 +113,14 @@ The transparent paper is pretty big, so for now, focus on just completing the fi
 
 To begin, get your puzzle input.
 
-Answer:
+Your puzzle answer was `842`.
+
+The first half of this puzzle is complete! It provides one gold star: *
+
+# --- Part Two ---
+
+Finish folding the transparent paper according to the instructions. The manual says the code is always **eight capital letters**.
+
+**What code do you use to activate the infrared thermal imaging camera system?**
+
+Your puzzle answer was `BFKRCJZU`.
