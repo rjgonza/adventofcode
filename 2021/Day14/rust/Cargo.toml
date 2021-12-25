@@ -1,0 +1,8 @@
+[package]
+name = "rust"
+version = "0.1.0"
+edition = "2021"
+# channel = "nightly"
+authors = ["Ramon Gonzalez <ramon@gonzalez.house>"]
+
+[dependancies]
