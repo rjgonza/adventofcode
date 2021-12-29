@@ -193,4 +193,4 @@ The largest magnitude of the sum of any two snailfish numbers in this list is **
 
 **What is the largest magnitude of any sum of two different snailfish numbers from the homework assignment?**
 
-Answer:
+Your puzzle answer was `4667`.

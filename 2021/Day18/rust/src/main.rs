@@ -1,6 +1,6 @@
 static INPUT_FILE: &str = include_str!("../../input.txt");
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 struct VecTree {
     values: Vec<u32>,
     depths: Vec<u32>,
@@ -101,7 +101,7 @@ impl VecTree {
         }
     }
 
-    fn score(&self) -> u32 {
+    fn magnitude(&self) -> u32 {
         let mut vals = self.values.clone();
         let mut depths = self.depths.clone();
 
@@ -135,7 +135,7 @@ fn part1(input: &str) -> u32 {
         tree.reduce();
     }
 
-    tree.score()
+    tree.magnitude()
 }
 
 fn part2(input: &str) -> u32 {
@@ -143,17 +143,26 @@ fn part2(input: &str) -> u32 {
     // dbg!(trees.clone());
 
     let mut best_score = 0;
+    // 'outer: for a in trees.iter() {
     for a in trees.iter() {
         for b in trees.iter() {
+            if a == b {
+                continue;
+            }
             let mut a = a.clone();
+            // let orig_a = a.clone();
+            // let orig_b = b.clone();
             a.add(b);
             a.reduce();
-            best_score = best_score.max(a.score());
-
-            let mut b = b.clone();
-            b.add(&a);
-            b.reduce();
-            best_score = best_score.max(a.score());
+            best_score = best_score.max(a.magnitude());
+            // if best_score == 4667 {
+            //TODO: Debug why we are getting 4700 vs 4667...
+            // if best_score == 4700 {
+            //     dbg!(orig_a);
+            //     dbg!(orig_b);
+            //     // dbg!(b.clone());
+            //     break 'outer;
+            // }
         }
     }
 
@@ -163,6 +172,19 @@ fn part2(input: &str) -> u32 {
 fn main() {
     println!("Part 1: {}", part1(INPUT_FILE));
     println!("Part 2: {}", part2(INPUT_FILE));
+
+    // [[[[4,9],0],[[4,4],9]],[[[6,1],[8,9]],[7,[2,3]]]]
+    // [[[[4,9],0],[[4,4],9]],[[[6,1],[8,9]],[7,[2,3]]]]
+
+    // let left = "[[[[8,8],8],[[3,9],[9,3]]],[[8,8],[[7,1],[6,5]]]]";
+    // let right = "[[[0,0],[[1,9],[0,6]]],[[5,[8,8]],[[6,9],[3,7]]]]";
+    // let mut l_tree: VecTree = VecTree::parse(left);
+    // let r_tree: VecTree = VecTree::parse(right);
+    // // dbg!(l_tree.clone());
+    // // dbg!(r_tree.clone());
+    // l_tree.add(&r_tree);
+    // l_tree.reduce();
+    // dbg!(l_tree.magnitude());
 }
 
 #[cfg(test)]
@@ -189,4 +211,8 @@ mod test {
     fn test_part2() {
         assert_eq!(part2(INPUT), 3993);
     }
+
+    // fn test_wtf() {
+
+    // }
 }
