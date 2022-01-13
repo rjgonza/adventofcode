@@ -380,4 +380,6 @@ In the above example, scanners `2` (`1105,-1205,1229`) and `3` (`-92,-2380,-20`)
 
 **What is the largest Manhattan distance between any two scanners?**
 
-Answer:
+Your puzzle answer was `12304`.
+
+Both parts of this puzzle are complete! They provide two gold stars: **

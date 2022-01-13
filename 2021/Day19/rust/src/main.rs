@@ -242,8 +242,96 @@ fn part1(input: &str) -> usize {
     beacons.len()
 }
 
-fn part2(_input: &str) -> usize {
-    todo!();
+fn part2(input: &str) -> usize {
+    let mut lines = input.lines().peekable();
+    let mut scanners = Vec::new();
+    let all_rots = all_rotations();
+
+    while lines.peek().is_some() {
+        // consume hyphen
+        lines.next();
+
+        let mut points = HashSet::new();
+        loop {
+            if lines.peek().is_none() {
+                break;
+            }
+
+            let line = lines.next().unwrap();
+            if line.len() == 0 {
+                break;
+            }
+
+            let coords: Vec<i32> = line.split(",").map(|toks| toks.parse().unwrap()).collect();
+            points.insert(Vec3 {
+                x: coords[0],
+                y: coords[1],
+                z: coords[2],
+            });
+        }
+
+        // Insert the scanner's list of beacon positions, along with a cache of
+        // pre-rotated positions. This allows us to avoid re-processing
+        // rotations during brute-force search.
+        let mut rots: HashMap<Vec3, HashSet<Vec3>> = HashMap::new();
+        for r in all_rots.iter() {
+            rots.insert(*r, points.iter().map(|p| p.rot(*r)).collect());
+        }
+
+        scanners.push(rots);
+    }
+
+    let min_overlap = 12;
+
+    // `resolved` is a map between scanner IDs and a tuple of the scanner's
+    // beacon positions, transformed to scanner 0's space.
+    let mut resolved = HashMap::new();
+    resolved.insert(0, scanners[0][&Vec3::zero()].clone());
+    let mut offsets = HashMap::new();
+    offsets.insert(0, Vec3::zero());
+
+    let mut unresolved = HashSet::new();
+    for i in 1..scanners.len() {
+        unresolved.insert(i);
+    }
+
+    let mut unrelated_scanners = HashSet::new();
+
+    'outer: while unresolved.len() > 0 {
+        for a_id in resolved.keys().cloned() {
+            let a_points = &resolved[&a_id];
+
+            for b_id in unresolved.clone() {
+                if unrelated_scanners.contains(&(a_id, b_id)) {
+                    continue;
+                }
+
+                for b_points in scanners[b_id].values() {
+                    if let Some(b_to_a) = find_offset(a_points, b_points, min_overlap) {
+                        unresolved.remove(&b_id);
+                        resolved.insert(b_id, translate_points(b_points, b_to_a));
+                        offsets.insert(b_id, b_to_a);
+                        continue 'outer;
+                    }
+                }
+
+                unrelated_scanners.insert((a_id, b_id));
+            }
+        }
+
+        unreachable!();
+    }
+
+    let offsets: Vec<Vec3> = offsets.values().map(|v| *v).collect();
+    let mut best = 0;
+    for i in 0..offsets.len() - 1 {
+        for j in (i + 1)..offsets.len() {
+            let d = offsets[j] - offsets[i];
+            best = best.max(d.x.abs() + d.y.abs() + d.z.abs());
+        }
+    }
+
+    best as usize
 }
 
 #[cfg(test)]
