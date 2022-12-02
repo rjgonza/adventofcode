@@ -18,7 +18,7 @@ fn part1(input: &str) -> usize {
     for line in input.lines() {
         if let Some((_, parts)) = line.split_once(" | ") {
             // for (_, parts) in line.split_once(" | ") {
-            for digits in parts.trim().split_whitespace() {
+            for digits in parts.split_whitespace() {
                 let digit = digits.len();
                 match digit {
                     2 => digit_counter += 1,
@@ -40,7 +40,6 @@ fn part2(input: &str) -> usize {
         // for (parts, display) in line.split_once(" | ") {
         if let Some((parts, display)) = line.split_once(" | ") {
             let numbers: Vec<HashSet<_>> = parts
-                .trim()
                 .split_whitespace()
                 .map(|s| HashSet::from_iter(s.chars()))
                 .collect();

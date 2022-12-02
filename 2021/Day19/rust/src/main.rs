@@ -173,11 +173,11 @@ fn part1(input: &str) -> usize {
             }
 
             let line = lines.next().unwrap();
-            if line.len() == 0 {
+            if line.is_empty() {
                 break;
             }
 
-            let coords: Vec<i32> = line.split(",").map(|toks| toks.parse().unwrap()).collect();
+            let coords: Vec<i32> = line.split(',').map(|toks| toks.parse().unwrap()).collect();
             points.insert(Vec3 {
                 x: coords[0],
                 y: coords[1],
@@ -210,7 +210,7 @@ fn part1(input: &str) -> usize {
 
     let mut unrelated_scanners = HashSet::new();
 
-    'outer: while unresolved.len() > 0 {
+    'outer: while !unresolved.is_empty() {
         for a_id in resolved.keys().cloned() {
             let a_points = &resolved[&a_id];
 
@@ -258,11 +258,11 @@ fn part2(input: &str) -> usize {
             }
 
             let line = lines.next().unwrap();
-            if line.len() == 0 {
+            if line.is_empty() {
                 break;
             }
 
-            let coords: Vec<i32> = line.split(",").map(|toks| toks.parse().unwrap()).collect();
+            let coords: Vec<i32> = line.split(',').map(|toks| toks.parse().unwrap()).collect();
             points.insert(Vec3 {
                 x: coords[0],
                 y: coords[1],
@@ -297,7 +297,7 @@ fn part2(input: &str) -> usize {
 
     let mut unrelated_scanners = HashSet::new();
 
-    'outer: while unresolved.len() > 0 {
+    'outer: while !unresolved.is_empty() {
         for a_id in resolved.keys().cloned() {
             let a_points = &resolved[&a_id];
 
@@ -322,7 +322,7 @@ fn part2(input: &str) -> usize {
         unreachable!();
     }
 
-    let offsets: Vec<Vec3> = offsets.values().map(|v| *v).collect();
+    let offsets: Vec<Vec3> = offsets.values().copied().collect();
     let mut best = 0;
     for i in 0..offsets.len() - 1 {
         for j in (i + 1)..offsets.len() {

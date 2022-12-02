@@ -73,7 +73,7 @@ fn main() {
         .map(|s| s.parse::<i32>().unwrap())
         .collect();
 
-    let mut boards: Vec<BingoBoard> = input[1..].chunks(5).map(|c| BingoBoard::new(c)).collect();
+    let mut boards: Vec<BingoBoard> = input[1..].chunks(5).map(BingoBoard::new).collect();
     for number in numbers.iter() {
         for board in boards.iter_mut() {
             board.check_board(*number);

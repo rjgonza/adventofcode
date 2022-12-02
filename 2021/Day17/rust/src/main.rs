@@ -1,4 +1,4 @@
-use std::collections::{HashMap, HashSet};
+
 
 static INPUT_FILE: &str = include_str!("../../input.txt");
 
@@ -12,10 +12,10 @@ fn part1(input: &str) -> i32 {
     let mut y_range = (0, 0);
     let mut best_y = i32::MIN;
     for line in input.lines() {
-        let data = line.split_once(":").unwrap().1.split_once(",").unwrap();
-        let x = data.0.split_once("=").unwrap().1.split_once("..").unwrap();
+        let data = line.split_once(':').unwrap().1.split_once(',').unwrap();
+        let x = data.0.split_once('=').unwrap().1.split_once("..").unwrap();
         x_range = (x.0.parse().unwrap(), x.1.parse().unwrap());
-        let y = data.1.split_once("=").unwrap().1.split_once("..").unwrap();
+        let y = data.1.split_once('=').unwrap().1.split_once("..").unwrap();
         y_range = (y.0.parse().unwrap(), y.1.parse().unwrap());
     }
     // dbg!(x_range);
@@ -31,7 +31,7 @@ fn part1(input: &str) -> i32 {
 
             loop {
                 x += x_val;
-                if (x_val > 0) {
+                if x_val > 0 {
                     x_val -= 1;
                 }
 
@@ -60,10 +60,10 @@ fn part2(input: &str) -> i32 {
     let mut best_y = i32::MIN;
     let mut results = 0;
     for line in input.lines() {
-        let data = line.split_once(":").unwrap().1.split_once(",").unwrap();
-        let x = data.0.split_once("=").unwrap().1.split_once("..").unwrap();
+        let data = line.split_once(':').unwrap().1.split_once(',').unwrap();
+        let x = data.0.split_once('=').unwrap().1.split_once("..").unwrap();
         x_range = (x.0.parse().unwrap(), x.1.parse().unwrap());
-        let y = data.1.split_once("=").unwrap().1.split_once("..").unwrap();
+        let y = data.1.split_once('=').unwrap().1.split_once("..").unwrap();
         y_range = (y.0.parse().unwrap(), y.1.parse().unwrap());
     }
     // dbg!(x_range);
@@ -79,7 +79,7 @@ fn part2(input: &str) -> i32 {
 
             loop {
                 x += x_val;
-                if (x_val > 0) {
+                if x_val > 0 {
                     x_val -= 1;
                 }
 
