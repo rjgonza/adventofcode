@@ -21,8 +21,9 @@ while getopts "d:" opts; do
 done
 
 d="$(date -d "${d:-$date}" +'%-d' )"
+y="$(date -d "${d:-$date}" +'%-Y' )"
 
-dir="${SCRIPT_DIR}/2021/Day${d}"
+dir="${SCRIPT_DIR}/${y}/Day${d}"
 mkdir -p "${dir}/bash"
 mkdir -p "${dir}/rust/src"
 
@@ -90,4 +91,4 @@ cat > "${dir}/Day${d}.md" <<EOF
 EOF
 
 echo "Add this line to the VS Code config:"
-echo "/home/ramon/code/adventofcode/2021/Day${d}/rust/Cargo.toml"
+echo "/home/ramon/code/adventofcode/${y}/Day${d}/rust/Cargo.toml"
