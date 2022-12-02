@@ -55,7 +55,7 @@ fn read_operator_subpackets(bits: &mut dyn Iterator<Item = char>) -> Vec<Packet>
         '0' => {
             let nbits = usize::from_str_radix(&bits.take(15).collect::<String>(), 2).unwrap();
             let mut subpacket_bits = bits.take(nbits).peekable();
-            while subpacket_bits.peek().is_some() {
+            while let Some(_) = subpacket_bits.peek() {
                 res.push(read_packet(&mut subpacket_bits));
             }
         }
@@ -100,7 +100,11 @@ fn sum_version(p: &Packet) -> u64 {
     match p {
         Packet::Literal(lit) => lit.version as u64,
         Packet::Operator(op) => {
-            let sub_sum = op.subpackets.iter().map(sum_version).sum::<u64>();
+            let sub_sum = op
+                .subpackets
+                .iter()
+                .map(|sub| sum_version(sub))
+                .sum::<u64>();
             op.version as u64 + sub_sum
         }
     }
@@ -110,7 +114,7 @@ fn eval(p: &Packet) -> u64 {
     match p {
         Packet::Literal(lit) => lit.val,
         Packet::Operator(op) => {
-            let mut sub_vals = op.subpackets.iter().map(eval);
+            let mut sub_vals = op.subpackets.iter().map(|sub| eval(sub));
             match op.optype {
                 OpType::Sum => sub_vals.sum(),
                 OpType::Product => sub_vals.product(),

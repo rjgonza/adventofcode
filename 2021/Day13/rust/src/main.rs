@@ -17,7 +17,7 @@ fn part1(input: &str) -> usize {
             let this: (&str, &str) = lines.trim().split_once(',').unwrap();
             coords.insert((this.0.parse().unwrap(), this.1.parse().unwrap()));
         } else if lines.contains('=') {
-            let data: Vec<&str> = lines.split_whitespace().collect();
+            let data: Vec<&str> = lines.trim().split_whitespace().collect();
             let (var, val) = data[data.len() - 1].split_once('=').unwrap();
             let fold = match var {
                 "x" => Fold::X(val.parse().unwrap()),
@@ -140,7 +140,7 @@ fn part2(input: &str) -> usize {
             let this: (&str, &str) = lines.trim().split_once(',').unwrap();
             coords.insert((this.0.parse().unwrap(), this.1.parse().unwrap()));
         } else if lines.contains('=') {
-            let data: Vec<&str> = lines.split_whitespace().collect();
+            let data: Vec<&str> = lines.trim().split_whitespace().collect();
             let (var, val) = data[data.len() - 1].split_once('=').unwrap();
             let fold = match var {
                 "x" => Fold::X(val.parse().unwrap()),
