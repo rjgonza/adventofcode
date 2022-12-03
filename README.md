@@ -194,3 +194,14 @@
 | ------------------------------------------- | ------------------------------------------- |
 | [Part 1](2022/Day2/bash/Day2_Part1.sh)  | [Part 1 & 2](2022/Day2/rust/src/main.rs) |
 | [Part 2](2022/Day2/bash/Day2_Part2.sh)  | |
+
+### Day 3
+
+[Puzzle](2022/Day3/Day3.md)
+
+#### Solutions
+
+| Bash                                          | Rust                                        |
+| --------------------------------------------- | ------------------------------------------- |
+| [Part 1](2022/Day3/bash/day3_part1.sh)  | [Part 1 & 2](2021/Day3/rust/src/main.rs) |
+| [Part 2](2022/Day3/bash/day3_part2.sh)  | |
