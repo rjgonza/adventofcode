@@ -41,17 +41,6 @@ fn part2(input: &str) -> usize {
     let mut sum: usize = 0;
 
     for set in input.lines().collect::<Vec<&str>>().chunks(3) {
-        // let mut group = set
-        //     .iter()
-        //     .map(|rucksack| HashSet::from_iter(rucksack.chars()))
-        //     .collect::<Vec<HashSet<char>>>();
-        // let mut common = *group.pop().unwrap();
-        // for rucksack in group {
-        //     common = rucksack
-        // }
-        // for line in set {
-        //     let common = line.chars().collect::<Vec<char>>();
-        // }
         sum += set[0]
             .chars()
             .filter(|c| set[1].contains(*c) && set[2].contains(*c))
