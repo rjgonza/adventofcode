@@ -169,34 +169,28 @@
 | ---- | ----------------------------------------- |
 |      | [Part 1 & 2](2021/Day20/rust/src/main.rs) |
 
-### Day 1
+#
 
-[Puzzle](2021/Day1/Day1.md)
-
-| Bash                                        | Rust                                        |
-| ------------------------------------------- | ------------------------------------------- |
-| [Part 1 & 2](2021/Day1/bash/day1.sh)  | [Part 1 & 2](2021/Day1/rust/src/main.rs) |
+## 2022
 
 ### Day 1
 
 [Puzzle](2021/Day1/Day1.md)
 
-| Bash                                        | Rust                                        |
-| ------------------------------------------- | ------------------------------------------- |
-| [Part 1 & 2](2021/Day1/bash/day1.sh)  | [Part 1 & 2](2021/Day1/rust/src/main.rs) |
-
-### Day 1
-
-[Puzzle](2021/Day1/Day1.md)
+#### Solutions
 
 | Bash                                        | Rust                                        |
 | ------------------------------------------- | ------------------------------------------- |
-| [Part 1 & 2](2021/Day1/bash/day1.sh)  | [Part 1 & 2](2021/Day1/rust/src/main.rs) |
+| [Part 1](2022/Day1/bash/Day1_Part1.sh)  | [Part 1 & 2](2021/Day2/rust/src/main.rs) |
+| [Part 2](2022/Day1/bash/Day2_Part2.sh)  | |
 
 ### Day 2
 
 [Puzzle](2021/Day2/Day2.md)
 
+#### Solutions
+
 | Bash                                        | Rust                                        |
 | ------------------------------------------- | ------------------------------------------- |
-| [Part 1 & 2](2021/Day2/bash/day2.sh)  | [Part 1 & 2](2021/Day2/rust/src/main.rs) |
+| [Part 1](2022/Day2/bash/Day2_Part1.sh)  | [Part 1 & 2](2022/Day2/rust/src/main.rs) |
+| [Part 2](2022/Day2/bash/Day2_Part2.sh)  | |

@@ -79,11 +79,14 @@ cat >> "${SCRIPT_DIR}/README.md" <<EOF
 
 ### Day ${d}
 
-[Puzzle](2021/Day${d}/Day${d}.md)
+[Puzzle](${y}/Day${d}/Day${d}.md)
 
-| Bash                                        | Rust                                        |
-| ------------------------------------------- | ------------------------------------------- |
-| [Part 1 & 2](2021/Day${d}/bash/day${d}.sh)  | [Part 1 & 2](2021/Day${d}/rust/src/main.rs) |
+#### Solutions
+
+| Bash                                          | Rust                                        |
+| --------------------------------------------- | ------------------------------------------- |
+| [Part 1](${y}/Day${d}/bash/day${d}_part1.sh)  | [Part 1 & 2](2021/Day${d}/rust/src/main.rs) |
+| [Part 2](${y}/Day${d}/bash/day${d}_part2.sh)  | |
 EOF
 
 cat > "${dir}/Day${d}.md" <<EOF
