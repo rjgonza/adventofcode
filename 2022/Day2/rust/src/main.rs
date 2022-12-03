@@ -21,7 +21,6 @@ impl FromStr for RPSChoices {
         }
     }
 }
-
 enum Outcomes {
     Win = 6,
     Lose = 0,
@@ -33,8 +32,8 @@ impl FromStr for Outcomes {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s {
-            "Y" => Ok(Outcomes::Lose),
-            "X" => Ok(Outcomes::Draw),
+            "X" => Ok(Outcomes::Lose),
+            "Y" => Ok(Outcomes::Draw),
             "Z" => Ok(Outcomes::Win),
             _ => Err(s.to_string()),
         }
@@ -84,29 +83,29 @@ fn part1(input: &str) -> usize {
 fn part2(input: &str) -> usize {
     let strategy = input
         .lines()
-        .map(|line| {
-            let res = line.split(' ')[1].parse::<Outcomes>().unwrap();
-            let opponent = line.split(' ')[0].parse::<RPSChoices>().unwrap();
+        .map(|line| -> usize {
+            let moves: Vec<&str> = line.split(' ').collect();
+            let res = moves[1].parse::<Outcomes>().unwrap();
+            let opponent = moves[0].parse::<RPSChoices>().unwrap();
 
-            choice = match res {
+            match res {
                 Outcomes::Win => {
-                    match opponent {
+                    let choice = match opponent {
                         RPSChoices::Rock => RPSChoices::Paper,
                         RPSChoices::Paper => RPSChoices::Scissors,
                         RPSChoices::Scissors => RPSChoices::Rock,
-                    }
-                },
-                Outcomes::Lose {
-                    match opponent {
+                    };
+                    res as usize + choice as usize
+                }
+                Outcomes::Lose => {
+                    let choice = match opponent {
                         RPSChoices::Rock => RPSChoices::Scissors,
                         RPSChoices::Paper => RPSChoices::Rock,
                         RPSChoices::Scissors => RPSChoices::Paper,
-                    }
-                },
-                Outcomes::Draw {
-                    opponent
+                    };
+                    res as usize + choice as usize
                 }
-
+                Outcomes::Draw => res as usize + opponent as usize,
             }
         })
         .sum();
