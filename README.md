@@ -205,3 +205,14 @@
 | --------------------------------------------- | ------------------------------------------- |
 | [Part 1](2022/Day3/bash/day3_part1.sh)  | [Part 1 & 2](2021/Day3/rust/src/main.rs) |
 | [Part 2](2022/Day3/bash/day3_part2.sh)  | |
+
+### Day 4
+
+[Puzzle](2022/Day4/Day4.md)
+
+#### Solutions
+
+| Bash                                          | Rust                                        |
+| --------------------------------------------- | ------------------------------------------- |
+| [Part 1](2022/Day4/bash/day4_part1.sh)  | [Part 1 & 2](2021/Day4/rust/src/main.rs) |
+| [Part 2](2022/Day4/bash/day4_part2.sh)  | |
